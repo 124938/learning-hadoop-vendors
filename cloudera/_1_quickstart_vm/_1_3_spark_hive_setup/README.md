@@ -1,6 +1,6 @@
 ## Cloudera QuickStart VM - Hive Integration With Spark
 
-### Configuration Changes
+### Hive Integration With Spark - Configuration Changes
 
 * **Step-0: Login to Quick Start VM or gateway node of hadoop cluster using ssh**
 ~~~

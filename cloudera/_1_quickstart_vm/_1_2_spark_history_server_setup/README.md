@@ -1,6 +1,15 @@
 ## Cloudera QuickStart VM - Spark History Server
 
 ### Spark History Server - Configuration Changes
+
+* **Step-0: Login to Quick Start VM or gateway node of hadoop cluster using ssh**
+~~~
+asus@asus-GL553VD:~$ ssh cloudera@192.168.211.142
+cloudera@192.168.211.142's password: 
+Last login: Sun Oct 29 18:49:10 2017 from 192.168.211.1
+[cloudera@quickstart ~]$
+~~~
+
 * **Step-1 : Stop the Spark History Server:**
 ~~~
 [cloudera@quickstart ~]$ sudo service spark-history-server stop

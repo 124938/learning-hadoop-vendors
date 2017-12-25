@@ -264,7 +264,6 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   } ],
   "tableName" : "categories"
 }
-[cloudera@quickstart ~]$ clear
 
 [cloudera@quickstart ~]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/categories/part-m-00000.avro
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
@@ -295,6 +294,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   } ],
   "tableName" : "categories"
 }
+
 [cloudera@quickstart ~]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/customers/part-m-00000.avro
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
@@ -360,6 +360,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   } ],
   "tableName" : "customers"
 }
+
 [cloudera@quickstart ~]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/departments/part-m-00000.avro
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
@@ -383,6 +384,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   } ],
   "tableName" : "departments"
 }
+
 [cloudera@quickstart ~]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/order_items/part-m-00000.avro
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
@@ -430,6 +432,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   } ],
   "tableName" : "order_items"
 }
+
 [cloudera@quickstart ~]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/orders/part-m-00000.avro
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
@@ -465,6 +468,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
   } ],
   "tableName" : "orders"
 }
+
 [cloudera@quickstart ~]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/products/part-m-00000.avro
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.

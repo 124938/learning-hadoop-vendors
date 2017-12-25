@@ -8,7 +8,9 @@ Last login: Sun Nov 26 17:58:32 2017 from 192.168.211.1
 [cloudera@quickstart ~]$
 ~~~
 
-### Step-1: Importing all tables from retail_db database of MySQL to HDFS
+### Step-1: Importing all tables of retail_db database of MySQL to HDFS (in .txt format)
+
+* **1.1 - Execute below sqoop command**
 
 ~~~
 [cloudera@quickstart ~]$ sqoop import-all-tables \
@@ -20,7 +22,7 @@ Last login: Sun Nov 26 17:58:32 2017 from 192.168.211.1
 --as-textfile
 ~~~
 
-### Step-2: Verify retail_db dataset on HDFS
+* **1.2 - Verify retail_db dataset on HDFS**
 
 ~~~
 [cloudera@quickstart ~]$ hadoop fs -ls -R /user/cloudera/sqoop/import-all-tables-text
@@ -44,7 +46,7 @@ drwxr-xr-x   - cloudera cloudera          0 2017-12-19 03:25 /user/cloudera/sqoo
 -rw-r--r--   1 cloudera cloudera     173993 2017-12-19 03:25 /user/cloudera/sqoop/import-all-tables-text/products/part-m-00000
 ~~~
 
-### Step-3: Creation of database called retail_db and required tables in Hive
+* **1.3 - Creation of database called retail_db and required tables in Hive**
 
 ~~~
 [cloudera@quickstart ~]$ hive
@@ -128,7 +130,7 @@ stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/products';
 ~~~
 
-### Step-4: Execute join query in Hive
+* **1.4 - Execute join query in Hive**
 
 ~~~
 hive (retail_db)> SET hive.auto.convert.join=false;

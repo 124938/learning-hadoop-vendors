@@ -60,7 +60,9 @@ hive> create database if not exists retail_db;
 hive> use retail_db;
 
 hive> set hive.cli.print.current.db=true;
+~~~
 
+~~~
 hive (retail_db)> create external table if not exists categories(
   category_id int,
   category_department_id int,
@@ -69,7 +71,9 @@ row format delimited
   fields terminated by ','
 stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/categories';
+~~~
 
+~~~
 hive (retail_db)>  create external table if not exists customers(
   customer_id int,
   customer_fname string,
@@ -84,7 +88,9 @@ row format delimited
   fields terminated by ','
 stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/customers';
+~~~
 
+~~~
 hive (retail_db)>  create external table if not exists departments(
   department_id int,
   department_name string)
@@ -92,7 +98,9 @@ row format delimited
   fields terminated by ','
 stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/departments';
+~~~
 
+~~~
 hive (retail_db)>  create external table if not exists order_items(
   order_item_id int,
   order_item_order_id int,
@@ -104,7 +112,9 @@ row format delimited
   fields terminated by ','
 stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/order_items';
+~~~
 
+~~~
 hive (retail_db)>  create external table if not exists orders(
   order_id int,
   order_date string,
@@ -114,7 +124,9 @@ row format delimited
   fields terminated by ','
 stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/orders';
+~~~
 
+~~~
 hive (retail_db)>  create external table if not exists products(
   product_id int,
   product_category_id int,

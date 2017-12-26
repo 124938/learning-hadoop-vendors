@@ -349,30 +349,51 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 ~~~
 [cloudera@quickstart ~]$ mkdir /home/cloudera/retail_db_avro_schema
 [cloudera@quickstart ~]$ cd /home/cloudera/retail_db_avro_schema
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/categories/part-m-00000.avro > /home/cloudera/retail_db_avro_schema/categories.avsc
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/customers/part-m-00000.avro > /home/cloudera/retail_db_avro_schema/customers.avsc
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/departments/part-m-00000.avro > /home/cloudera/retail_db_avro_schema/departments.avsc
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/order_items/part-m-00000.avro > /home/cloudera/retail_db_avro_schema/order_items.avsc
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/orders/part-m-00000.avro > /home/cloudera/retail_db_avro_schema/orders.avsc
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ avro-tools getschema hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/products/part-m-00000.avro > /home/cloudera/retail_db_avro_schema/products.avsc
 log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
 [cloudera@quickstart retail_db_avro_schema]$ ls -ltr /home/cloudera/retail_db_avro_schema/
 total 24
 -rw-rw-r-- 1 cloudera cloudera  595 Dec 24 20:53 categories.avsc
@@ -396,7 +417,124 @@ total 24
 -rw-r--r--   1 cloudera cloudera       1042 2017-12-25 07:10 /user/cloudera/retail_db_avro_schema/products.avsc
 ~~~
 
-* **1.6 - Creation of database called retail_db_avro and required tables in Hive**
+* **1.6 - Generate JSON file from avro file**
+
+~~~
+[cloudera@quickstart ~]$ mkdir retail_db_json
+[cloudera@quickstart ~]$ cd retail_db_json/
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ mkdir categories
+
+[cloudera@quickstart retail_db_json]$ avro-tools tojson hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/categories/part-m-00000.avro > categories/part-m-00000.json
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ mkdir customers
+
+[cloudera@quickstart retail_db_json]$ avro-tools tojson hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/customers/part-m-00000.avro > customers/part-m-00000.json
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ mkdir departments
+
+[cloudera@quickstart retail_db_json]$ avro-tools tojson hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/departments/part-m-00000.avro > departments/part-m-00000.json
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ mkdir order_items
+
+[cloudera@quickstart retail_db_json]$ avro-tools tojson hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/order_items/part-m-00000.avro > order_items/part-m-00000.json
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ mkdir orders
+
+[cloudera@quickstart retail_db_json]$ avro-tools tojson hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/orders/part-m-00000.avro > orders/part-m-00000.json
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ mkdir products
+
+[cloudera@quickstart retail_db_json]$ avro-tools tojson hdfs://quickstart.cloudera/user/cloudera/sqoop/import-all-tables-avro/products/part-m-00000.avro > products/part-m-00000.json
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+~~~
+
+~~~
+[cloudera@quickstart retail_db_json]$ ls -ltr -R
+.:
+total 24
+drwxrwxr-x 2 cloudera cloudera 4096 Dec 26 02:01 categories
+drwxrwxr-x 2 cloudera cloudera 4096 Dec 26 02:02 customers
+drwxrwxr-x 2 cloudera cloudera 4096 Dec 26 02:02 departments
+drwxrwxr-x 2 cloudera cloudera 4096 Dec 26 02:02 order_items
+drwxrwxr-x 2 cloudera cloudera 4096 Dec 26 02:03 orders
+drwxrwxr-x 2 cloudera cloudera 4096 Dec 26 02:03 products
+
+./categories:
+total 8
+-rw-rw-r-- 1 cloudera cloudera 6017 Dec 26 02:01 part-m-00000.json
+
+./customers:
+total 4200
+-rw-rw-r-- 1 cloudera cloudera 4298540 Dec 26 02:02 part-m-00000.json
+
+./departments:
+total 4
+-rw-rw-r-- 1 cloudera cloudera 402 Dec 26 02:02 part-m-00000.json
+
+./order_items:
+total 36732
+-rw-rw-r-- 1 cloudera cloudera 37609906 Dec 26 02:02 part-m-00000.json
+
+./orders:
+total 9052
+-rw-rw-r-- 1 cloudera cloudera 9268297 Dec 26 02:03 part-m-00000.json
+
+./products:
+total 396
+-rw-rw-r-- 1 cloudera cloudera 404010 Dec 26 02:03 part-m-00000.json
+~~~
+
+* **1.7 - Copy JSON files from local file system to HDFS**
+
+~~~
+[cloudera@quickstart retail_db_json]$ hadoop fs -put /home/cloudera/retail_db_json /user/cloudera
+
+[cloudera@quickstart retail_db_json]$ hadoop fs -ls -R /user/cloudera/retail_db_json
+drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/retail_db_json/categories
+-rw-r--r--   1 cloudera cloudera       6017 2017-12-26 02:12 /user/cloudera/retail_db_json/categories/part-m-00000.json
+drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/retail_db_json/customers
+-rw-r--r--   1 cloudera cloudera    4298540 2017-12-26 02:12 /user/cloudera/retail_db_json/customers/part-m-00000.json
+drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/retail_db_json/departments
+-rw-r--r--   1 cloudera cloudera        402 2017-12-26 02:12 /user/cloudera/retail_db_json/departments/part-m-00000.json
+drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/retail_db_json/order_items
+-rw-r--r--   1 cloudera cloudera   37609906 2017-12-26 02:12 /user/cloudera/retail_db_json/order_items/part-m-00000.json
+drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/retail_db_json/orders
+-rw-r--r--   1 cloudera cloudera    9268297 2017-12-26 02:12 /user/cloudera/retail_db_json/orders/part-m-00000.json
+drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/retail_db_json/products
+-rw-r--r--   1 cloudera cloudera     404010 2017-12-26 02:12 /user/cloudera/retail_db_json/products/part-m-00000.json
+~~~
+
+* **1.8 - Creation of database called retail_db_avro and required tables in Hive**
 
 ~~~
 [cloudera@quickstart ~]$ hive
@@ -412,39 +550,51 @@ hive> create database if not exists retail_db_avro;
 hive> use retail_db_avro;
 
 hive> set hive.cli.print.current.db=true;
+~~~
 
+~~~
 hive (retail_db_avro)> create external table if not exists categories
 stored as avro
 location '/user/cloudera/sqoop/import-all-tables-avro/categories'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/categories.avsc');
+~~~
 
+~~~
 hive (retail_db_avro)> create external table if not exists customers
 stored as avro
 location '/user/cloudera/sqoop/import-all-tables-avro/customers'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/customers.avsc');
+~~~
 
+~~~
 hive (retail_db_avro)> create external table if not exists departments
 stored as avro
 location '/user/cloudera/sqoop/import-all-tables-avro/departments'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/departments.avsc');
+~~~
 
+~~~
 hive (retail_db_avro)> create external table if not exists order_items
 stored as avro
 location '/user/cloudera/sqoop/import-all-tables-avro/order_items'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/order_items.avsc');
+~~~
 
+~~~
 hive (retail_db_avro)> create external table if not exists orders
 stored as avro
 location '/user/cloudera/sqoop/import-all-tables-avro/orders'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/orders.avsc');
+~~~
 
+~~~
 hive (retail_db_avro)> create external table if not exists products
 stored as avro
 location '/user/cloudera/sqoop/import-all-tables-avro/products'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/products.avsc');
 ~~~
 
-* **1.7 - Verification of database retail_db_avro and created tables in Hive**
+* **1.9 - Verification of database retail_db_avro and created tables in Hive**
 
 ~~~
 hive (retail_db_avro)> show tables;
@@ -714,7 +864,7 @@ Storage Desc Params:
 Time taken: 0.08 seconds, Fetched: 38 row(s)
 ~~~
 
-* **1.8 - Execute join query in Hive**
+* **1.10 - Execute join query in Hive**
 
 ~~~
 hive (retail_db_avro)> SET hive.auto.convert.join=false;

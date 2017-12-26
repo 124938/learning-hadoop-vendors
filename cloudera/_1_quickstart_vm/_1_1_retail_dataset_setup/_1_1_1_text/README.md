@@ -1,4 +1,4 @@
-## Cloudera QuickStart VM - Retail DataSet Setup (TEXT File)
+## Cloudera QuickStart VM - Retail DataSet Setup (In TEXT file format)
 
 ### Step-0: Login To VM
 ~~~
@@ -8,7 +8,7 @@ Last login: Sun Dec 24 02:37:11 2017 from 192.168.211.1
 [cloudera@quickstart ~]$
 ~~~
 
-### Step-1: Importing all tables available under retail_db database of MySQL to HDFS (in .txt format)
+### Step-1: Importing all tables available under retail_db database of MySQL to HDFS in .txt format
 
 * **1.1 - Execute below sqoop command**
 
@@ -22,7 +22,7 @@ Last login: Sun Dec 24 02:37:11 2017 from 192.168.211.1
 --as-textfile
 ~~~
 
-* **1.2 - Verify retail_db dataset on HDFS**
+* **1.2 - Verify text files on HDFS**
 
 ~~~
 [cloudera@quickstart ~]$ hadoop fs -ls -R /user/cloudera/sqoop/import-all-tables-text

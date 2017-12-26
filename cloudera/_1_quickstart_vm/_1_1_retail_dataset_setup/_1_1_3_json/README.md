@@ -1,4 +1,4 @@
-## Cloudera QuickStart VM - Retail DataSet Setup (JSON File)
+## Cloudera QuickStart VM - Retail DataSet Setup (In JSON file format)
 
 ### Step-0: Login To VM
 ~~~
@@ -8,7 +8,7 @@ Last login: Sun Dec 24 02:37:11 2017 from 192.168.211.1
 [cloudera@quickstart ~]$
 ~~~
 
-### Step-1: Setup retail dataset from existing avro dataset (in .json format)
+### Step-1: Setup retail dataset from existing avro dataset in .json format
 
 * **1.1 - Generate JSON file from avro file**
 

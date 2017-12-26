@@ -129,4 +129,3 @@ drwxr-xr-x   - cloudera cloudera          0 2017-12-26 02:12 /user/cloudera/reta
 -rw-r--r--   1 cloudera cloudera     404010 2017-12-26 02:12 /user/cloudera/retail_db_json/products/part-m-00000.json
 ~~~
 
-### Step-2: retail_db_json database setup in HIVE

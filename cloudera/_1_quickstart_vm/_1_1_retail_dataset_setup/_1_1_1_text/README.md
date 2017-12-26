@@ -1,10 +1,10 @@
-## Cloudera QuickStart VM - Retail DataSet Setup (Text File)
+## Cloudera QuickStart VM - Retail DataSet Setup (TEXT File)
 
 ### Step-0: Login To VM
 ~~~
 asus@asus-GL553VD:~$ ssh cloudera@192.168.211.142
 cloudera@192.168.211.142's password: 
-Last login: Sun Nov 26 17:58:32 2017 from 192.168.211.1
+Last login: Sun Dec 24 02:37:11 2017 from 192.168.211.1
 [cloudera@quickstart ~]$
 ~~~
 
@@ -46,7 +46,9 @@ drwxr-xr-x   - cloudera cloudera          0 2017-12-19 03:25 /user/cloudera/sqoo
 -rw-r--r--   1 cloudera cloudera     173993 2017-12-19 03:25 /user/cloudera/sqoop/import-all-tables-text/products/part-m-00000
 ~~~
 
-* **1.3 - Creation of database called retail_db and required tables in Hive**
+### Step-2: retail_db database setup in HIVE
+
+* **2.1 - Creation of database called retail_db and required tables in Hive**
 
 ~~~
 [cloudera@quickstart ~]$ hive
@@ -140,7 +142,7 @@ stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/products';
 ~~~
 
-* **1.4 - Verification of database retail_db and created tables in Hive**
+* **2.2 - Verification of database retail_db and created tables in Hive**
 
 ~~~
 hive (retail_db_avro)> show tables;
@@ -411,7 +413,7 @@ Time taken: 0.084 seconds, Fetched: 38 row(s)
 
 ~~~
 
-* **1.5 - Execute join query in Hive**
+* **2.3 - Execute join query in Hive**
 
 ~~~
 hive (retail_db)> SET hive.auto.convert.join=false;

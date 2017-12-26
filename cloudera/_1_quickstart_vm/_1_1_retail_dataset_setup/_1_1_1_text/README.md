@@ -131,18 +131,16 @@ location '/user/cloudera/sqoop/import-all-tables-text/products';
 * **1.4 - Verification of database retail_db and created tables in Hive**
 
 ~~~
-[cloudera@quickstart ~]$ hive
-Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
-WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
-hive> show databases;
-default
-  
-hive> create database if not exists retail_db;
+hive (retail_db_avro)> show tables;
+categories
+customers
+departments
+order_items
+orders
+products
+~~~
 
-hive> use retail_db;
-
-hive> set hive.cli.print.current.db=true;
-
+~~~
 hive (retail_db)> describe formatted categories;
 OK
 # col_name            	data_type           	comment             
@@ -181,7 +179,9 @@ Storage Desc Params:
 	field.delim         	,                   
 	serialization.format	,                   
 Time taken: 0.068 seconds, Fetched: 35 row(s)
+~~~
 
+~~~
 hive (retail_db)> describe formatted customers;
 OK
 # col_name            	data_type           	comment             
@@ -226,7 +226,9 @@ Storage Desc Params:
 	field.delim         	,                   
 	serialization.format	,                   
 Time taken: 0.086 seconds, Fetched: 41 row(s)
+~~~
 
+~~~
 hive (retail_db)> describe formatted departments;
 OK
 # col_name            	data_type           	comment             
@@ -264,7 +266,9 @@ Storage Desc Params:
 	field.delim         	,                   
 	serialization.format	,                   
 Time taken: 0.081 seconds, Fetched: 34 row(s)
+~~~
 
+~~~
 hive (retail_db)> describe formatted order_items;
 OK
 # col_name            	data_type           	comment             
@@ -306,8 +310,10 @@ Storage Desc Params:
 	field.delim         	,                   
 	serialization.format	,                   
 Time taken: 0.097 seconds, Fetched: 38 row(s)
+~~~
 
-ive (retail_db)> describe formatted orders;
+~~~
+hive (retail_db)> describe formatted orders;
 OK
 # col_name            	data_type           	comment             
 	 	 
@@ -346,7 +352,9 @@ Storage Desc Params:
 	field.delim         	,                   
 	serialization.format	,                   
 Time taken: 0.085 seconds, Fetched: 36 row(s)
+~~~
 
+~~~
 hive (retail_db)> describe formatted products;
 OK
 # col_name            	data_type           	comment             

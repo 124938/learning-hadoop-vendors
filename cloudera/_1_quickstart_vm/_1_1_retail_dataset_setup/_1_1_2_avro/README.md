@@ -447,33 +447,16 @@ tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/products.
 * **1.7 - Verification of database retail_db_avro and created tables in Hive**
 
 ~~~
-[cloudera@quickstart ~]$ hive
-
-Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
-WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
-hive> show databases;
-OK
-default
-retail_db
-retail_db_avro
-Time taken: 0.405 seconds, Fetched: 3 row(s)
-
-hive> use retail_db_avro;
-OK
-Time taken: 0.029 seconds
-
-hive> set hive.cli.print.current.db=true;
-
 hive (retail_db_avro)> show tables;
-OK
 categories
 customers
 departments
 order_items
 orders
 products
-Time taken: 0.029 seconds, Fetched: 6 row(s)
+~~~
 
+~~~
 hive (retail_db_avro)> describe formatted categories;
 OK
 # col_name              data_type             comment             
@@ -512,7 +495,9 @@ Sort Columns:         []
 Storage Desc Params:     
   serialization.format  1                   
 Time taken: 0.237 seconds, Fetched: 35 row(s)
+~~~
 
+~~~
 hive (retail_db_avro)> describe formatted customers;
 OK
 # col_name              data_type             comment             
@@ -557,7 +542,9 @@ Sort Columns:         []
 Storage Desc Params:     
   serialization.format  1                   
 Time taken: 0.098 seconds, Fetched: 41 row(s)
+~~~
 
+~~~
 hive (retail_db_avro)> describe formatted departments;
 OK
 # col_name              data_type             comment             
@@ -595,7 +582,9 @@ Sort Columns:         []
 Storage Desc Params:     
   serialization.format  1                   
 Time taken: 0.081 seconds, Fetched: 34 row(s)
+~~~
 
+~~~
 hive (retail_db_avro)> describe formatted order_items;
 OK
 # col_name              data_type             comment             
@@ -637,7 +626,9 @@ Sort Columns:         []
 Storage Desc Params:     
   serialization.format  1                   
 Time taken: 0.09 seconds, Fetched: 38 row(s)
+~~~
 
+~~~
 hive (retail_db_avro)> describe formatted orders;
 OK
 # col_name              data_type             comment             
@@ -677,7 +668,9 @@ Sort Columns:         []
 Storage Desc Params:     
   serialization.format  1                   
 Time taken: 0.099 seconds, Fetched: 36 row(s)
+~~~
 
+~~~
 hive (retail_db_avro)> describe formatted products;
 OK
 # col_name              data_type             comment             
@@ -719,26 +712,11 @@ Sort Columns:         []
 Storage Desc Params:     
   serialization.format  1                   
 Time taken: 0.08 seconds, Fetched: 38 row(s)
-
 ~~~
 
 * **1.8 - Execute join query in Hive**
 
 ~~~
-[cloudera@quickstart ~]$ hive
-
-Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
-WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
-hive> show databases;
-default
-retail_db
-retail_db_avro
-Time taken: 0.405 seconds, Fetched: 3 row(s)
-
-hive> use retail_db_avro;
-
-hive> set hive.cli.print.current.db=true;
-
 hive (retail_db_avro)> SET hive.auto.convert.join=false;
 
 hive (retail_db_avro)> select o.order_date, sum(oi.order_item_subtotal)

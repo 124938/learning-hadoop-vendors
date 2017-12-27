@@ -48,7 +48,7 @@ drwxr-xr-x   - cloudera cloudera          0 2017-12-19 03:25 /user/cloudera/sqoo
 
 ### Step-2: retail_db database setup in HIVE
 
-* **2.1 - Create database called retail_db in Hive**
+* **2.1 - Create database called `retail_db` in Hive**
 
 ~~~
 [cloudera@quickstart ~]$ hive
@@ -64,7 +64,7 @@ hive> use retail_db;
 hive> set hive.cli.print.current.db=true;
 ~~~
 
-* **2.2 - Create tables under retail_db database in Hive**
+* **2.2 - Create tables under `retail_db` database in Hive**
 
 ~~~
 hive (retail_db)> create external table if not exists categories(

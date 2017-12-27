@@ -346,9 +346,9 @@ product_image:  BINARY SNAPPY DO:0 FPO:24112 SZ:19215/62451/3.25 VC:1345 ENC:RLE
 {"product_id":1345,"product_category_id":59,"product_name":"Nike Men's Home Game Jersey St. Louis Rams Gr","product_description":"","product_price":100.0,"product_image":"http://images.acmesports.sports/Nike+Men%27s+Home+Game+Jersey+St.+Louis+Rams+Greg+Robinson..."}
 ~~~
 
-### Step-2: retail_db_parquet database setup in HIVE
+### Step-2: `retail_db_parquet` database setup in HIVE
 
-* **2.1 - Creation of database called retail_db_parquet and required tables in Hive**
+* **2.1 - Create database called `retail_db_parquet` in Hive**
 
 ~~~
 [cloudera@quickstart ~]$ hive
@@ -368,6 +368,8 @@ hive> set hive.cli.print.current.db=true;
 
 hive (retail_db_parquet)> 
 ~~~
+
+* **2.2 - Create tables under `retail_db_parquet` database in Hive**
 
 ~~~
 hive (retail_db_parquet)> create external table if not exists categories(
@@ -435,7 +437,7 @@ stored as parquet
 location '/user/cloudera/sqoop/import_all_tables_parquet/products';
 ~~~
 
-* **2.4 - Verification of database retail_db_avro and created tables in Hive**
+* **2.3 - Verification of tables under `retail_db_parquet` database in Hive**
 
 ~~~
 hive (retail_db_parquet)> show tables;

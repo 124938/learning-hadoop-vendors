@@ -344,7 +344,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 }
 ~~~
 
-### Step-2: retail_db_avro database setup in HIVE
+### Step-2: `retail_db_avro` database setup in HIVE
 
 * **2.1 - Generate avro schema from avro file**
 
@@ -419,7 +419,7 @@ total 24
 -rw-r--r--   1 cloudera cloudera       1042 2017-12-25 07:10 /user/cloudera/retail_db_avro_schema/products.avsc
 ~~~
 
-* **2.3 - Creation of database called retail_db_avro and required tables in Hive**
+* **2.3 - Create database called `retail_db_avro` in Hive**
 
 ~~~
 [cloudera@quickstart ~]$ hive
@@ -436,6 +436,8 @@ hive> use retail_db_avro;
 
 hive> set hive.cli.print.current.db=true;
 ~~~
+
+* **2.4 - Create tables under `retail_db_avro` database in Hive**
 
 ~~~
 hive (retail_db_avro)> create external table if not exists categories
@@ -479,7 +481,7 @@ location '/user/cloudera/sqoop/import-all-tables-avro/products'
 tblproperties ('avro.schema.url'='/user/cloudera/retail_db_avro_schema/products.avsc');
 ~~~
 
-* **2.4 - Verification of database retail_db_avro and created tables in Hive**
+* **2.5 - Verification of tables under `retail_db_avro` database in Hive**
 
 ~~~
 hive (retail_db_avro)> show tables;
@@ -749,7 +751,7 @@ Storage Desc Params:
 Time taken: 0.08 seconds, Fetched: 38 row(s)
 ~~~
 
-* **2.5 - Execute join query in Hive**
+* **2.6 - Execute join query in Hive**
 
 ~~~
 hive (retail_db_avro)> SET hive.auto.convert.join=false;

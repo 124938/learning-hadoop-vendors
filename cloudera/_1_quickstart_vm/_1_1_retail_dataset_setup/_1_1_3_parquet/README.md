@@ -701,7 +701,7 @@ Storage Desc Params:
 Time taken: 0.096 seconds, Fetched: 37 row(s)
 ~~~
 
-* **2.5 - Execute join query in Hive**
+* **2.4 - Execute join query in Hive**
 
 ~~~
 hive (retail_db_parquet)> SET hive.auto.convert.join=false;

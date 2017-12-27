@@ -144,7 +144,7 @@ stored as textfile
 location '/user/cloudera/sqoop/import-all-tables-text/products';
 ~~~
 
-* **2.5 - Verification of tables under `retail_db` database in Hive**
+* **2.3 - Verification of tables under `retail_db` database in Hive**
 
 ~~~
 hive (retail_db)> show tables;
@@ -415,7 +415,7 @@ Time taken: 0.084 seconds, Fetched: 38 row(s)
 
 ~~~
 
-* **2.3 - Execute join query in Hive**
+* **2.4 - Execute join query in Hive**
 
 ~~~
 hive (retail_db)> SET hive.auto.convert.join=false;

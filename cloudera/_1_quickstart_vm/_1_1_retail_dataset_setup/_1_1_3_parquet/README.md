@@ -8,7 +8,7 @@ Last login: Sun Dec 24 02:37:11 2017 from 192.168.211.1
 [cloudera@quickstart ~]$
 ~~~
 
-### Step-1: Importing all tables available under retail_db database of MySQL to HDFS in .parquet format
+### Step-1: Importing all tables available under `retail_db` database of MySQL to HDFS in .parquet format
 
 * **1.1 - Execute below sqoop command**
 

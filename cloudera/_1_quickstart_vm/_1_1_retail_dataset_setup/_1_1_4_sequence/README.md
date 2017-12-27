@@ -22,7 +22,7 @@ Last login: Tue Dec 26 22:09:16 2017 from 192.168.211.1
 -rw-rw-r-- 1 cloudera cloudera 4966 Dec 26 23:05 hive-sqoop-serde.jar
 ~~~
 
-### Step-1: Importing all tables available under retail_db database of MySQL to HDFS in sequence file format
+### Step-1: Importing all tables available under `retail_db` database of MySQL to HDFS in sequence file format
 
 * **1.0 - Clean required files/folders**
 
@@ -49,56 +49,21 @@ Deleted /user/cloudera/sqoop/import-all-tables-sequence
 --as-sequencefile
 ~~~
 
-* **1.2 - Verification of retail_db_sequence_bin directory**
+* **1.2 - Verification of retail_db_sequence_bin folder**
 
 ~~~
-/home/cloudera/retail_db_sequence_bin/com/learning/sqoop/sequencefile:
-total 232
--rw-rw-r-- 1 cloudera cloudera 14147 Dec 26 23:11 products.class
--rw-rw-r-- 1 cloudera cloudera   781 Dec 26 23:11 products$5.class
--rw-rw-r-- 1 cloudera cloudera   784 Dec 26 23:11 products$6.class
--rw-rw-r-- 1 cloudera cloudera   787 Dec 26 23:11 products$1.class
--rw-rw-r-- 1 cloudera cloudera   787 Dec 26 23:11 products$2.class
--rw-rw-r-- 1 cloudera cloudera   784 Dec 26 23:11 products$3.class
--rw-rw-r-- 1 cloudera cloudera   784 Dec 26 23:11 products$4.class
--rw-rw-r-- 1 cloudera cloudera   289 Dec 26 23:11 products$FieldSetterCommand.class
--rw-rw-r-- 1 cloudera cloudera 12475 Dec 26 23:11 orders.class
--rw-rw-r-- 1 cloudera cloudera   776 Dec 26 23:11 orders$2.class
--rw-rw-r-- 1 cloudera cloudera   773 Dec 26 23:11 orders$3.class
--rw-rw-r-- 1 cloudera cloudera   770 Dec 26 23:11 orders$4.class
--rw-rw-r-- 1 cloudera cloudera   773 Dec 26 23:11 orders$1.class
--rw-rw-r-- 1 cloudera cloudera   283 Dec 26 23:11 orders$FieldSetterCommand.class
--rw-rw-r-- 1 cloudera cloudera 14068 Dec 26 23:11 order_items.class
--rw-rw-r-- 1 cloudera cloudera   808 Dec 26 23:11 order_items$4.class
--rw-rw-r-- 1 cloudera cloudera   802 Dec 26 23:11 order_items$5.class
--rw-rw-r-- 1 cloudera cloudera   802 Dec 26 23:11 order_items$6.class
--rw-rw-r-- 1 cloudera cloudera   808 Dec 26 23:11 order_items$1.class
--rw-rw-r-- 1 cloudera cloudera   808 Dec 26 23:11 order_items$2.class
--rw-rw-r-- 1 cloudera cloudera   808 Dec 26 23:11 order_items$3.class
--rw-rw-r-- 1 cloudera cloudera   298 Dec 26 23:11 order_items$FieldSetterCommand.class
--rw-rw-r-- 1 cloudera cloudera  9719 Dec 26 23:11 departments.class
--rw-rw-r-- 1 cloudera cloudera   808 Dec 26 23:11 departments$1.class
--rw-rw-r-- 1 cloudera cloudera   805 Dec 26 23:11 departments$2.class
--rw-rw-r-- 1 cloudera cloudera   298 Dec 26 23:11 departments$FieldSetterCommand.class
--rw-rw-r-- 1 cloudera cloudera 16365 Dec 26 23:11 customers.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$7.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$8.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$9.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$3.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$4.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$5.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$6.class
--rw-rw-r-- 1 cloudera cloudera   794 Dec 26 23:11 customers$1.class
--rw-rw-r-- 1 cloudera cloudera   791 Dec 26 23:11 customers$2.class
--rw-rw-r-- 1 cloudera cloudera   292 Dec 26 23:11 customers$FieldSetterCommand.class
--rw-rw-r-- 1 cloudera cloudera 10743 Dec 26 23:10 categories.class
--rw-rw-r-- 1 cloudera cloudera   798 Dec 26 23:10 categories$3.class
--rw-rw-r-- 1 cloudera cloudera   801 Dec 26 23:10 categories$1.class
--rw-rw-r-- 1 cloudera cloudera   801 Dec 26 23:10 categories$2.class
--rw-rw-r-- 1 cloudera cloudera   295 Dec 26 23:10 categories$FieldSetterCommand.class
+[cloudera@quickstart ~]$ ls -ltr /home/cloudera/retail_db_sequence_bin
+total 64
+drwxrwxr-x 3 cloudera cloudera  4096 Dec 26 23:10 com
+-rw-rw-r-- 1 cloudera cloudera  6460 Dec 26 23:10 categories.jar
+-rw-rw-r-- 1 cloudera cloudera 11617 Dec 26 23:11 customers.jar
+-rw-rw-r-- 1 cloudera cloudera  5577 Dec 26 23:11 departments.jar
+-rw-rw-r-- 1 cloudera cloudera  9143 Dec 26 23:11 order_items.jar
+-rw-rw-r-- 1 cloudera cloudera  7571 Dec 26 23:11 orders.jar
+-rw-rw-r-- 1 cloudera cloudera  9216 Dec 26 23:11 products.jar
 ~~~
 
-* **1.4 - Verification of generated sequence file on HDFS**
+* **1.3 - Verification of sequence file on HDFS**
 
 ~~~
 [cloudera@quickstart ~]$ hadoop fs -cat /user/cloudera/sqoop/import-all-tables-sequence/categories/part-m-00000 | tail

@@ -46,7 +46,7 @@ drwxr-xr-x   - cloudera cloudera          0 2017-12-19 03:25 /user/cloudera/sqoo
 -rw-r--r--   1 cloudera cloudera     173993 2017-12-19 03:25 /user/cloudera/sqoop/import-all-tables-text/products/part-m-00000
 ~~~
 
-### Step-2: retail_db database setup in HIVE
+### Step-2: `retail_db` database setup in HIVE
 
 * **2.1 - Create database called `retail_db` in Hive**
 

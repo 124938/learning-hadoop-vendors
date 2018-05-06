@@ -23,11 +23,19 @@ Last login: Sun Oct 29 18:49:10 2017 from 192.168.211.1
 
 * **Step-3 : Add following lines to /etc/spark/conf/spark-defaults.conf file to enable spark events log:**
 ~~~
+[cloudera@quickstart ~]$ sudo vi /etc/spark/conf/spark-defaults.conf
+~~~
+
+~~~
 spark.eventLog.enabled true
 spark.eventLog.dir hdfs://quickstart.cloudera:8020/user/spark/applicationHistory
 ~~~
       
-* **Step-4 : Add below line to /etc/spark/conf/spark-defaults.conf file to link YARN ResourceManager directly to the Spark History Server:**
+* **Step-4 : Add below line to /etc/spark/conf/spark-defaults.conf file to link YARN Resource Manager directly to the Spark History Server:**
+~~~
+[cloudera@quickstart ~]$ sudo vi /etc/spark/conf/spark-defaults.conf
+~~~
+
 ~~~
 spark.yarn.historyServer.address http://quickstart.cloudera:18088
 ~~~

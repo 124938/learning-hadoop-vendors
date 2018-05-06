@@ -18,7 +18,7 @@ Last login: Sun Oct 29 18:49:10 2017 from 192.168.211.1
 * **Step-2 : Set ownership and permissions on /user/spark/applicationHistory directory in HDFS and  as follows:**
 ~~~
 [cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -chown -R spark:spark /user/spark
-[cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -chmod 1777 /user/spark/applicat Resource Manager Resource ManagerionHistory
+[cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -chmod 1777 /user/spark/applicationHistory
 ~~~
 
 * **Step-3 : Add following lines to /etc/spark/conf/spark-defaults.conf file to enable spark events log:**

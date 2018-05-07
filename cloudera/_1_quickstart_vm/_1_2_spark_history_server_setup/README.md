@@ -3,6 +3,7 @@
 ### Spark History Server - Configuration Changes
 
 * **Step-0: Login to Quick Start VM or gateway node of hadoop cluster using ssh**
+
 ~~~
 asus@asus-GL553VD:~$ ssh cloudera@192.168.211.142
 cloudera@192.168.211.142's password: 
@@ -10,18 +11,21 @@ Last login: Sun Oct 29 18:49:10 2017 from 192.168.211.1
 [cloudera@quickstart ~]$
 ~~~
 
-* **Step-1 : Stop the Spark History Server:**
+* **Step-1 : Stop the Spark History Server**
+
 ~~~
 [cloudera@quickstart ~]$ sudo service spark-history-server stop
 ~~~
 
 * **Step-2 : Set ownership and permissions on /user/spark/applicationHistory directory in HDFS and  as follows:**
+
 ~~~
 [cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -chown -R spark:spark /user/spark
 [cloudera@quickstart ~]$ sudo -u hdfs hadoop fs -chmod 1777 /user/spark/applicationHistory
 ~~~
 
-* **Step-3 : Add following lines to /etc/spark/conf/spark-defaults.conf file to enable spark events log:**
+* **Step-3 : Add following lines to `/etc/spark/conf/spark-defaults.conf` file to enable spark events log**
+
 ~~~
 [cloudera@quickstart ~]$ sudo vi /etc/spark/conf/spark-defaults.conf
 ~~~
@@ -31,7 +35,8 @@ spark.eventLog.enabled true
 spark.eventLog.dir hdfs://quickstart.cloudera:8020/user/spark/applicationHistory
 ~~~
       
-* **Step-4 : Add below line to /etc/spark/conf/spark-defaults.conf file to link YARN Resource Manager directly to the Spark History Server:**
+* **Step-4 : Add below line to `/etc/spark/conf/spark-defaults.conf` file to link YARN Resource Manager directly to the Spark History Server**
+
 ~~~
 [cloudera@quickstart ~]$ sudo vi /etc/spark/conf/spark-defaults.conf
 ~~~
@@ -40,13 +45,16 @@ spark.eventLog.dir hdfs://quickstart.cloudera:8020/user/spark/applicationHistory
 spark.yarn.historyServer.address http://quickstart.cloudera:18088
 ~~~
 
-* **Step-5 : Start the Spark History Server:**
+* **Step-5 : Start the Spark History Server**
+
 ~~~
 [cloudera@quickstart ~]$ sudo service spark-history-server start
 ~~~
 
 ### Verify Spark Application
-* **Step-1: Start `spark-shell` in YARN mode:**
+
+* **Step-1: Start `spark-shell` in YARN mode**
+
 ~~~
 [cloudera@quickstart conf]$ spark-shell --master yarn --num-executors 1
 Setting default log level to "WARN".
@@ -70,20 +78,19 @@ SQL context available as sqlContext.
 
 ~~~
 
-* **Step-2: Verify UI of YARN Resource Manager:**
+* **Step-2: Verify UI of YARN Resource Manager**
 
 ![Alt text](_images/yarn-resource-manager-ui.png?raw=true "YARN - Resource Manager - UI")
 
-* **Step-3: Verify UI of HDFS Name Node:**
+* **Step-3: Verify UI of HDFS Name Node**
 
 ![Alt text](_images/hdfs-name-node-ui.png?raw=true "HDFS - Name Node -UI")
 
-* **Step-4: Verify UI of Spark Application:**
+* **Step-4: Verify UI of Spark Application**
 
 ![Alt text](_images/spark-application-master-ui.png?raw=true "Spark - Application Master UI")
 
-* **Step-5: Verify UI of Spark History Server:**
+* **Step-5: Verify UI of Spark History Server**
 
 ![Alt text](_images/spark-history-server-ui.png?raw=true "Spark - History Server UI")
-
 
